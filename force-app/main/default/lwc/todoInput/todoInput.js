@@ -28,11 +28,11 @@ export default class TodoInput extends LightningElement {
                     value: obj.value
                 };
             });
-            console.log( 'Options are ' + JSON.stringify( this.options ) );
+            //console.log( 'Options are ' + JSON.stringify( this.options ) );
 
         } else {
 
-            console.log('error', error);
+            //console.log('error', error);
         }
 
     }
@@ -58,7 +58,7 @@ export default class TodoInput extends LightningElement {
         if (this.task && this.description && this.type && this.date) {
 
             this.loading = true;
-            console.log('data -->', this.task, this.description, this.type, this.date);
+            //console.log('data -->', this.task, this.description, this.type, this.date);
 
             //send to apex class to create task
             createTodo({ task: this.task, description: this.description, taskType: this.type, dueDate: this.date })
