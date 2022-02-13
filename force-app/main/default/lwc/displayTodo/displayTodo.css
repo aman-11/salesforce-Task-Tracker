@@ -1,0 +1,10 @@
+.progressTask{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.closeBtn{
+    --lwc-colorTextIconDefault: #BA0517;
+}

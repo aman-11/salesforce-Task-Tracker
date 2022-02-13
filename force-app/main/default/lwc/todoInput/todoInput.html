@@ -1,0 +1,43 @@
+<template>
+    <div class="slds-p-around_x-small">
+        <div class="slds-form-elements" if:false={loading}>
+         <br/> 
+        <label class="slds-form-element__label">
+          <abbr class="slds-required" title="required">* </abbr>Task</label>
+        <div class="slds-form-element__control">
+          <input type="text" value={task} placeholder="Write your task.." required class="slds-input"  onchange={handleTask} />
+        </div>
+        <br />
+        <label class="slds-form-element__label">
+            <abbr class="slds-required" title="required">* </abbr>Description</label>
+          <div class="slds-form-element__control-p-top_xxx-small">
+            <input type="text" required class="slds-input" value={description} onchange={handleDescription} />
+        </div>
+        <br />
+        <lightning-combobox
+            class="slds-p-top_xxx-small"
+            name="progress"
+            label="Type"
+            value={type}
+            options={typelist}
+            onchange={handleType}
+            data-id="requiredField"
+            required
+            > 
+        </lightning-combobox>
+        <br />
+        <label class="slds-form-element__label">
+            <abbr class="slds-required" title="required">* </abbr>Due Date</label>
+          <div class="slds-form-element__control-p-top_xxx-small">
+            <input type="date" required value={date} class="slds-input" onchange={handleDate} />
+        </div>
+        <br />
+        <div class="slds-align_absolute-center" style="height:3rem">
+            <button class="slds-button slds-button_outline-brand" onclick={handleSubmit} >Add Task</button>
+        </div>
+       </div>
+        <div class="exampleHolder" if:true={loading}>
+          <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </div>
+</template>

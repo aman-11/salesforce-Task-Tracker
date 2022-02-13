@@ -1,0 +1,28 @@
+.annoucements{
+    margin:16px 16px 0px 12px;
+    display: grid;
+    grid-row-gap: 16px;
+}
+
+.card{
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding:6px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-column-gap: 14px;
+}
+
+.notask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:50%;
+}
+
+.exampleHolder{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50%;
+}

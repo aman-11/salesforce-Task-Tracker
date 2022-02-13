@@ -1,0 +1,39 @@
+<template>
+    <template if:false={loading} >
+        <div class="slds-p-around_x-small">
+
+            <div slot="header">
+                <h1><strong>Have a Great Day!</strong></h1>
+            </div>
+
+            <template if:true={isTask} for:each={unreadTask} for:item="task" for:index="index" >
+                <div class="annoucements" key={task.Id}>
+                    <div class="card">
+                        <div class="icon">
+                            <lightning-icon icon-name="standard:announcement"></lightning-icon>
+                        </div>
+                        <div class="body">
+                            <h2 class="slds-text-heading–small slds-m-bottom–x-small"> <strong> {task.Name} </strong> </h2>                        
+                            <p> {task.Details__c} </p>
+                        </div>
+                        <div>
+                            <lightning-button-icon  class="closeBtn" value={task.Id} onclick={readHandler} icon-name="utility:close" variant="border-filled" slot="actions" ></lightning-button-icon>
+                        </div>
+                    </div>
+                </div>
+            </template>
+
+            <!--no annoucements-->
+            <template if:false={isTask}>
+                <div class="notask">
+                    <span>No Task Bookmarked</span> 
+                </div>
+            </template>
+        </div>
+    </template>
+    <template if:true={loading} >
+        <div class="exampleHolder">
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+        </div>
+    </template>
+</template>

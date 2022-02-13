@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Handling of Tasks!</description>
+    <isExposed>false</isExposed>
+    <lightningMessageFields>
+        <description>Action Hapenning with Task</description>
+        <fieldName>Task</fieldName>
+    </lightningMessageFields>
+    <masterLabel>Announcements</masterLabel>
+</LightningMessageChannel>

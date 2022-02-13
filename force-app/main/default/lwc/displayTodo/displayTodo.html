@@ -1,0 +1,46 @@
+<template>
+    <div class="slds-grid slds-wrap slds-p-around_xx-small " if:false={loading} >
+
+            <div class="slds-col slds-size_2-of-3 slds-border_right" style="background-color:white;" >
+                <strong class="slds-align_absolute-center" >In Progress</strong>
+                <!--doing task-->
+                <div class="progressTask">
+                    <template for:each={taskInProgress} for:item="todo" for:index="index">
+                        <div class="slds-col slds-p-around_small slds-size_1-of-3"  key={todo.Id} >
+                            <lightning-card  variant="Narrow"  title={todo.Name} icon-name="standard:today">
+                                <lightning-button-icon class="slds-m-right_x-small"  value={todo} onclick={bookmarkHandler}  icon-name="utility:bookmark" variant="border-filled" slot="actions" style="--lwc-colorTextIconDefault: #1589EE;" ></lightning-button-icon>
+                                <lightning-button-icon class="slds-m-right_x-small" value={todo.Id} onclick={completedHandler} icon-name="utility:check" variant="border-filled" slot="actions" style="--lwc-colorTextIconDefault: #029D11;" ></lightning-button-icon>                        
+                                <lightning-button-icon class="closeBtn" value={todo.Id} onclick={deleteHandler} icon-name="utility:close" variant="border-filled" slot="actions"></lightning-button-icon>                        
+                                <p class="slds-p-horizontal_small">{todo.Description__c}</p>
+                                <div slot="footer">Due Date:&nbsp;&nbsp;
+                                    <!-- <button class="slds-button slds-button_destructive">Delete</button> -->
+                                    <strong style="color:#BA0517;" >{todo.Due_Date__c}</strong>
+                                </div>
+                            </lightning-card>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <div class="slds-col slds-size_1-of-3 slds-border_left" style="background-color:white;">
+                <strong class="slds-align_absolute-center" >Completed</strong>
+                <!--completed task-->
+                <div class="progressTask" >
+                    <template for:each={taskCompleted} for:item="todo" for:index="index">
+                        <div class="slds-col slds-p-around_small slds-size_1-of-2" key={todo.Id}>
+                            <lightning-card variant="Narrow" title={todo.Name} icon-name="standard:task2">
+                                <lightning-button-icon  class="closeBtn"  value={todo.Id} onclick={deleteHandler} icon-name="utility:close" variant="border-filled" slot="actions" >
+                                </lightning-button-icon>
+                                <!-- <p class="slds-p-horizontal_small">{todo.Description__c}</p> -->
+                                <!-- <div slot="footer"><button class="slds-button slds-button_destructive">Delete</button></div> -->
+                            </lightning-card>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+    </div>
+    <div class="exampleHolder" if:true={loading}>
+        <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+    </div>
+</template>
